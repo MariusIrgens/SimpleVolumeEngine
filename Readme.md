@@ -52,3 +52,7 @@ After building, the executables will be available in the ```./bin``` folder.
 ## Class diagram
 
 ![Simple class diagram](UML.jpeg?raw=true "Simple class diagram")
+
+## Sample screenshot
+
+![Screenshot](Screenshot.png?raw=true "Screenshot")
