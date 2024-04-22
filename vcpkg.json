@@ -1,0 +1,19 @@
+{
+	"$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",
+	"name": "simplevolumeengine",
+	"version": "0.0.1",
+	"dependencies": [
+		"glm",
+		"glfw3",
+		"glbinding",
+		"globjects",
+		"tinyfiledialogs",
+		"stb",
+		{
+			"name": "imgui",
+			"default-features": false,
+			"features": [ "glfw-binding", "opengl3-binding" ]
+		},
+		"nifticlib"
+	]
+}
