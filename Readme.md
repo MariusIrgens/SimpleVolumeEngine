@@ -7,6 +7,12 @@ https://youtube.com/@mariusirgens5555?si=ViyWO1278_H8aFdL
 
 If you use the code for something awesome, I would love to see. Let me know!
 
+Much of the code is based on code from the Minity engine by Stefan Bruckner:
+https://git.app.uib.no/code/minity
+
+Some of the code is taken directly from that engine (for instance, the camera archball interaction).
+This code should be a bit more streamlined for direct volume rendering specifically, though.
+
 ## Step 1 - Clone this repo <br />
 I recommend using Visual Studio Community, since that is what I have used.
 
