@@ -1,4 +1,4 @@
-## Step 1 - VCPKG (clone locally): <br />
+## Step 1 - VCPKG <br />
 The project uses vcpkg (https://vcpkg.io) for dependency management, so this should take care of everything. 
 Please follow the instructions on the vcpkg website (https://vcpkg.io/en/getting-started.html) to set it up for your environment. 
 When using visual studio, make sure to install the vcpkg integration using <br />
