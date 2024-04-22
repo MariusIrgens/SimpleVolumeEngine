@@ -48,3 +48,7 @@ cmake ..
 ```
 
 After building, the executables will be available in the ```./bin``` folder.
+
+## Class diagram
+
+![Simple class diagram](UML.jpeg?raw=true "Simple class diagram")
