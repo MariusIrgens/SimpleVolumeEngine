@@ -9,3 +9,5 @@ int main()
 	std::unique_ptr<SystemManager> systemManager = std::make_unique<SystemManager>();
 	systemManager->frameloop();
 }
+
+// Code by Marius Irgens

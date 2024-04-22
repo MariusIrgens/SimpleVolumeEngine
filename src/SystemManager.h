@@ -47,3 +47,5 @@ private:
 	int m_renderWindowSize_x = 1280;	// initial value - change if the window starts to big/small
 	int m_renderWindowSize_y = 720;		// initial value - change if the window starts to big/small
 };
+
+// Code by Marius Irgens

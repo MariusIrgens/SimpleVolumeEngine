@@ -1,3 +1,12 @@
+## SIMPLE VOLUME ENGINE <br />
+I made this Direct Volume Rendering template for anyone interested in learning direct volume rendering, 
+or anyone who wants a quick setup for trying out new volume rendering ideas.
+
+I will probably make a video walkthrough of the code at some point. Stay tuned at my Youtube channel:
+https://youtube.com/@mariusirgens5555?si=ViyWO1278_H8aFdL
+
+If you use the code for something awesome, I would love to see. Let me know!
+
 ## Step 1 - Clone this repo <br />
 I recommend using Visual Studio Community, since that is what I have used.
 
