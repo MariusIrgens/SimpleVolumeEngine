@@ -2,8 +2,8 @@
 I made this Direct Volume Rendering template for anyone interested in learning direct volume rendering, 
 or anyone who wants a quick setup for trying out new volume rendering ideas.
 
-I will probably make a video walkthrough of the code at some point. Stay tuned at my Youtube channel:
-https://youtube.com/@mariusirgens5555?si=ViyWO1278_H8aFdL
+I have made a video where I give a brief overview of the code:
+https://youtu.be/ajifJZP-yTc?si=Uyi_s7sRphNE4cFF
 
 If you use the code for something awesome, I would love to see. Let me know!
 
