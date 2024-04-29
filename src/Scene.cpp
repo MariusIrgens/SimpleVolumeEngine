@@ -13,6 +13,7 @@ void Scene::updateScene()
 {
 	// Insert logic for scene updates
 	// You should change variables directly using interaction, if possible
+	// You might want to animate something (for instance rotation) -- then you could do that here
 }
 
 Volume* Scene::getVolume()

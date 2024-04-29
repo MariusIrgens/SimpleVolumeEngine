@@ -13,7 +13,7 @@ RendererVolume::RendererVolume(SystemManager* systemManager) : m_systemManager(s
 	setupVolumeTexture();
 	setupGradientTexture();
 
-	// Initialize some variables
+	// Initialize variables
 	transferFunctionMidValue = systemManager->getScene()->getVolume()->getBiggestDataValue() / 2.0f;
 
 }
@@ -66,7 +66,6 @@ void RendererVolume::setupShaders()
 	 // MAIN PROGRAM
 	m_programVolume->attach(m_vertexShader.get(), m_fragmentShader.get());
 
-
 }
 
 void RendererVolume::setupVolumeTexture()
@@ -88,7 +87,7 @@ void RendererVolume::setupVolumeTexture()
 	m_volumeTexture->setParameter(gl::GL_TEXTURE_WRAP_R, gl::GL_CLAMP_TO_BORDER);
 	m_volumeTexture->image3D(0, gl::GL_R16F, glm::ivec3(uWidth, uHeight, uDepth), 0, gl::GL_RED, gl::GL_UNSIGNED_SHORT, m_systemManager->getScene()->getVolume()->getVolumeData());
 
-	// Bind 3D texture to context
+	// Bind 3D texture to program/context
 	m_programVolume->setUniform("volumeTexture", 0);
 	m_volumeTexture->bindActive(0);
 
@@ -98,7 +97,7 @@ void RendererVolume::setupGradientTexture()
 {
 	// COMPUTE GRADIENT
 
-	// Even thougg the gradient is not used in the default render, it is passed as a texture, and you can access it using
+	// Even though the gradient is not used in the default render, it is passed as a texture, and you can access it using
 	// float gradientTextureValue = texture(gradientTexture, somePosition).r;
 
 	// Get volume dimension info from header
@@ -107,7 +106,7 @@ void RendererVolume::setupGradientTexture()
 	uHeight = m_systemManager->getScene()->getVolume()->getDimensions().at(1);
 	uDepth = m_systemManager->getScene()->getVolume()->getDimensions().at(2);
 
-	// Program
+	// COMPUTE SHADER/PROGRAM
 	m_programComputeGradient = globjects::Program::create();
 	m_computeGradientShaderSource = globjects::Shader::sourceFromFile("./../res/computeGradient-cs.glsl");
 	m_computeGradientShader = globjects::Shader::create(gl::GL_COMPUTE_SHADER, m_computeGradientShaderSource.get());
@@ -173,6 +172,7 @@ void RendererVolume::renderFrame()
 	// Get viewport size from camera
 	int viewPortSize_x = m_systemManager->getScene()->getCamera()->getViewportSize_x();
 	int viewPortSize_y = m_systemManager->getScene()->getCamera()->getViewportSize_y();
+	gl::glViewport(0.0, 0.0, viewPortSize_x, viewPortSize_y);
 
 	// Set OpenGL state
 	gl::glDepthMask(gl::GL_TRUE);

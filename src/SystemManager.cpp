@@ -83,13 +83,11 @@ void SystemManager::shutdown()
 	glfwTerminate();
 }
 
-// TODO: Fix window resize callback (currently out-of-order)
 void SystemManager::framebufferSizeCallbackRenderWindow(GLFWwindow* window, int width, int height)
 {
 	SystemManager* systemManager = static_cast<SystemManager*>(glfwGetWindowUserPointer(window));
 	systemManager->setRenderWindowSize(width, height);
-	systemManager->getScene()->getCamera()->setViewportSize();
-	globjects::debug() << "resized window";
+	systemManager->getScene()->getCamera()->recalculateCamera();
 }
 
 void SystemManager::setRenderWindowSize(int width, int height)

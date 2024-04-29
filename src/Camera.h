@@ -12,12 +12,13 @@ class Camera
 {
 public:
 	Camera(SystemManager* systemManager);
+	void recalculateCamera();
 	glm::mat4 getViewMatrix();
+	glm::mat4 createViewMatrix();
 	glm::mat4 getProjectionMatrix();
 	glm::mat4 createProjectionMatrix();
 	int getViewportSize_x();
 	int getViewportSize_y();
-	void setViewportSize();
 	void MouseCursorPosEvent(int xpos, int ypos);			// Called from InteractorMouse
 	void MouseButtonEvent(int button, bool action);			// Called from InteractorMouse
 	void MouseScrollEvent(double xoffset, double yoffset);	// Called from InteractorMouse
@@ -32,6 +33,9 @@ private:
 	int m_viewport_size_y;
 	float m_nearZ = 0.01f;
 	float m_farZ = 100.0f;
+
+	// *** OPENGL MATHEMATICS ***
+	// https://github.com/g-truc/glm/blob/master/manual.md
 
 	glm::vec3 m_cameraPos = glm::vec3(0.0f, 0.0f, 2.0f);
 	glm::vec3 m_center = glm::vec3(0.0f, 0.0f, 0.0f);

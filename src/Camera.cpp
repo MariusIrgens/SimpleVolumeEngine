@@ -5,11 +5,15 @@
 Camera::Camera(SystemManager* systemManager) : m_systemManager(systemManager)
 {
 	// Set default camera transform
-	m_viewport_size_x = systemManager->getRenderWindowSize_x();
-	m_viewport_size_y = systemManager->getRenderWindowSize_y();
-	m_viewMatrix = glm::lookAt(m_cameraPos, m_center, m_cameraUp);
-	m_projectionMatrix = createProjectionMatrix();
+	recalculateCamera();
+}
 
+void Camera::recalculateCamera()
+{
+	m_viewport_size_x = m_systemManager->getRenderWindowSize_x();
+	m_viewport_size_y = m_systemManager->getRenderWindowSize_y();
+	m_viewMatrix = createViewMatrix();
+	m_projectionMatrix = createProjectionMatrix();
 }
 
 glm::mat4 Camera::getViewMatrix()
@@ -30,6 +34,11 @@ int Camera::getViewportSize_x()
 int Camera::getViewportSize_y()
 {
 	return m_viewport_size_y;
+}
+
+glm::mat4 Camera::createViewMatrix() 
+{
+	return glm::lookAt(m_cameraPos, m_center, m_cameraUp);
 }
 
 glm::mat4 Camera::createProjectionMatrix()
@@ -140,12 +149,4 @@ void Camera::MouseScrollEvent(double xoffset, double yoffset)
 	glm::mat4 viewTransform = m_viewMatrix;
 	glm::mat4 newViewTransform = glm::translate(glm::mat4(1.0), glm::vec3(0.0f, 0.0f, (yoffset / 8.0))) * viewTransform;
 	m_viewMatrix = newViewTransform;
-}
-
-void Camera::setViewportSize()
-{
-	m_viewport_size_x = m_systemManager->getRenderWindowSize_x();
-	m_viewport_size_y = m_systemManager->getRenderWindowSize_y();
-	m_viewMatrix = glm::lookAt(m_cameraPos, m_center, m_cameraUp);
-	m_projectionMatrix = createProjectionMatrix();
 }

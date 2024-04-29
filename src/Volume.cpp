@@ -28,6 +28,10 @@ void Volume::updateVolume()
 }
 
 void Volume::loadNifti()
+
+	// *** NIFTI C LIBRARIES ***
+	// https://github.com/NIFTI-Imaging/nifti_clib
+	// https://brainder.org/2012/09/23/the-nifti-file-format/
 {
 	globjects::debug() << "Please wait, loading NIFTI data...";
 
